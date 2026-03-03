@@ -1,0 +1,26 @@
+import cv2
+
+# Read captured video file
+cap = cv2.VideoCapture("video.mp4")  # Replace with your video file name
+
+if not cap.isOpened():
+    print("Error opening video file")
+
+while cap.isOpened():
+    ret, frame = cap.read()
+    
+    if ret:
+        cv2.imshow("Video", frame)
+        
+        # Change speed here:
+        # Slow motion -> waitKey(100)
+        # Normal speed -> waitKey(25)
+        # Fast motion -> waitKey(5)
+        
+        if cv2.waitKey(25) & 0xFF == ord('q'):
+            break
+    else:
+        break
+
+cap.release()
+cv2.destroyAllWindows()
