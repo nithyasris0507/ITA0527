@@ -1,0 +1,21 @@
+import cv2
+
+# Read the image
+img = cv2.imread("image.jpg")
+
+# Get original dimensions
+height, width = img.shape[:2]
+
+# Resize to Bigger Size (Scale = 1.5 times)
+bigger = cv2.resize(img, (int(width*1.5), int(height*1.5)))
+
+# Resize to Smaller Size (Scale = 0.5 times)
+smaller = cv2.resize(img, (int(width*0.5), int(height*0.5)))
+
+# Display images
+cv2.imshow("Original Image", img)
+cv2.imshow("Bigger Image", bigger)
+cv2.imshow("Smaller Image", smaller)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
